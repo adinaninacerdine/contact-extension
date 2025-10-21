@@ -10,17 +10,6 @@
             <xpath expr="//field[@name='state_id']" position="after">
                 <field name="region" 
                        placeholder="Sélectionner une région"
-                       domain="[
-                           '|', '|', 
-                           '&amp;', ('state_id', '=', False), ('region', '!=', False),
-                           '&amp;', ('state_id.name', '=', 'Ngazidja (KM)'), 
-                                ('region', 'in', ['bambao', 'hambou', 'mbadjini', 'domba', 'dimani', 'oichili', 'hamahamet', 'mboinkou', 'mitsamihouli', 'mboude', 'hamanvou', 'itsandra']),
-                           '|',
-                           '&amp;', ('state_id.name', '=', 'Ndzuani (KM)'), 
-                                ('region', 'in', ['mutsamudu', 'ouani', 'domoni', 'mremani', 'sima']),
-                           '&amp;', ('state_id.name', '=', 'Mwali (KM)'), 
-                                ('region', 'in', ['fomboni', 'nioumachoua', 'djando'])
-                       ]"
                        attrs="{'invisible': [('country_id.code', '!=', 'KM')]}"/>
             </xpath>
         </field>

@@ -44,7 +44,32 @@ class ResPartner(models.Model):
     
     @api.onchange('state_id')
     def _onchange_state_region(self):
-        """Réinitialise la région quand l'état change"""
+        """Réinitialise la région quand l'état change et filtre les options"""
         if self.state_id:
             # Réinitialise la région pour forcer une nouvelle sélection
             self.region = False
+            
+            # Retourne le domaine pour filtrer les régions selon l'état
+            state_name = self.state_id.name
+            
+            if state_name == 'Ngazidja (KM)':
+                return {
+                    'domain': {
+                        'region': [('region', 'in', ['bambao', 'hambou', 'mbadjini', 'domba', 
+                                                      'dimani', 'oichili', 'hamahamet', 'mboinkou', 
+                                                      'mitsamihouli', 'mboude', 'hamanvou', 'itsandra'])]
+                    }
+                }
+            elif state_name == 'Ndzuani (KM)':
+                return {
+                    'domain': {
+                        'region': [('region', 'in', ['mutsamudu', 'ouani', 'domoni', 'mremani', 'sima'])]
+                    }
+                }
+            elif state_name == 'Mwali (KM)':
+                return {
+                    'domain': {
+                        'region': [('region', 'in', ['fomboni', 'nioumachoua', 'djando'])]
+                    }
+                }
+        return {'domain': {'region': []}}
