@@ -6,6 +6,32 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
+            <!-- Positionner après le champ zip (code postal) -->
+            <xpath expr="//field[@name='zip']" position="after">
+                <field name="region" placeholder="Sélectionner une région"/>
+            </xpath>
+        </field>
+    </record>
+    
+    <!-- Vue liste avec région -->
+    <record id="view_partner_tree_region" model="ir.ui.view">
+        <field name="name">res.partner.tree.region</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='phone']" position="after">
+                <field name="region" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+</odoo><?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vue formulaire avec région dynamique -->
+    <record id="view_partner_form_region" model="ir.ui.view">
+        <field name="name">res.partner.form.region</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
             <!-- Ajoute le champ région après le champ état -->
             <xpath expr="//field[@name='state_id']" position="after">
                 <field name="region" 
