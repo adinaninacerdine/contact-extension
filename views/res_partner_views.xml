@@ -26,20 +26,4 @@
             </xpath>
         </field>
     </record>
-    
-    <!-- Vue recherche avec filtre région -->
-    <record id="view_partner_search_region" model="ir.ui.view">
-        <field name="name">res.partner.search.region</field>
-        <field name="model">res.partner</field>
-        <field name="inherit_id" ref="base.view_res_partner_filter"/>
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='category_id']" position="after">
-                <field name="region"/>
-            </xpath>
-            <xpath expr="//filter[@name='country']" position="after">
-                <filter string="Région" name="region" 
-                        context="{'group_by': 'region'}"/>
-            </xpath>
-        </field>
-    </record>
 </odoo>
