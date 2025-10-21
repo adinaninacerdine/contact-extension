@@ -33,7 +33,7 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_res_partner_filter"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='state_id']" position="after">
+            <xpath expr="//field[@name='category_id']" position="after">
                 <field name="region"/>
             </xpath>
             <xpath expr="//filter[@name='country']" position="after">
