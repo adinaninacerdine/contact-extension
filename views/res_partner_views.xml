@@ -1,3 +1,4 @@
+# views/res_partner_views.xml
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- Vue formulaire avec région dynamique -->
@@ -10,7 +11,7 @@
             <xpath expr="//field[@name='state_id']" position="after">
                 <field name="region" 
                        placeholder="Sélectionner une région"
-                       attrs="{'invisible': [('country_id.code', '!=', 'KM')]}"/>
+                       invisible="country_id.code != 'KM'"/>
             </xpath>
         </field>
     </record>
